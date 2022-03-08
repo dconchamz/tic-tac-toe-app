@@ -1,0 +1,14 @@
+FROM node:14-alpine
+
+RUN apk update
+WORKDIR /app
+
+COPY package*.json ./
+COPY src /app/src
+
+RUN ls -a
+RUN npm install
+
+EXPOSE 5000
+
+CMD ["npm", "start"]
